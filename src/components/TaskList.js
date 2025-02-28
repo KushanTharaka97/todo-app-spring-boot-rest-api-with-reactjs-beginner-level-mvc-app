@@ -6,6 +6,7 @@ const TaskList = () => {
   const [filter, setFilter] = useState("all");
 
   useEffect(() => {
+    console.log("Loding the Tasks.")
     loadTasks();
   }, [filter]);
 
@@ -14,6 +15,7 @@ const TaskList = () => {
     if (filter === "completed") response = await getCompletedTasks();
     else if (filter === "uncompleted") response = await getUncompletedTasks();
     else response = await getAllTasks();
+    console.log("data: ", response.data)
     setTasks(response.data);
   };
 
